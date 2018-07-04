@@ -5,9 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script>window.Laravel = {csrfToken: '{{ csrf_token() }}'}</script>
-        <meta name="_token" content="{{ csrf_token() }}" />
-        <link href="{{ URL::asset('/css/app.css') }}" rel="stylesheet" type="text/css">
-        <title>Laravel</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
+        <link href="/css/app.css" rel="stylesheet" type="text/css">
+        <title>Shopping Cart</title>
 
         <!-- Styles -->
     </head>
@@ -18,6 +18,6 @@
 
             </div>
         </div>
-    <script src="{{ URL::asset('js/app.js') }}"></script>
+    <script src="/js/app.js"></script>
     </body>
 </html>

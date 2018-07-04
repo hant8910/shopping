@@ -7,16 +7,20 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+import VueRouter from 'vue-router';
+import routes from './routes.js';
+import App from './components/App.vue';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+Vue.use(VueRouter);
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
-const app = new Vue({
-    el: '#app'
+const router = new VueRouter({_,
+    mode: 'history',
+    base: __dirname,
+    linkActiveClass: 'active',
+    routes: routes
 });
