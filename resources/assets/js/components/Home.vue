@@ -1,6 +1,8 @@
 <template>
 	<div>
-		<div>This is template body</div>
+		<div class="w3-container w3-padding-32 w3-theme-d1">
+			<h1>Products</h1>
+		</div>
 	</div>
 </template>
 
@@ -12,11 +14,16 @@
 	export default {
 		data() {
 			return {
-				msg: 'hello vue'
+				products: []
 			}
 		},
-		components: {
-
+		created() {
+			this.fetchProducts();
+		},
+		methods: {
+			fetchProducts() {
+				axios.get('api/products').then(response => this.products = response.data.products)
+			}
 		}
 	}
 </script>

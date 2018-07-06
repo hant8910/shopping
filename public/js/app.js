@@ -50004,7 +50004,7 @@ exports = module.exports = __webpack_require__(45)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50368,15 +50368,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
 		return {
-			msg: 'hello vue'
+			products: []
 		};
 	},
+	created: function created() {
+		this.fetchProducts();
+	},
 
-	components: {}
+	methods: {
+		fetchProducts: function fetchProducts() {
+			var _this = this;
+
+			axios.get('api/products').then(function (response) {
+				return _this.products = response.data.products;
+			});
+		}
+	}
 });
 
 /***/ }),
@@ -50394,7 +50407,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("div", [_vm._v("This is template body")])])
+    return _c("div", [
+      _c("div", { staticClass: "w3-container w3-padding-32 w3-theme-d1" }, [
+        _c("h1", [_vm._v("Products")])
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -50465,10 +50482,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
+    data: function data() {
+        return {};
     }
 });
 
@@ -50480,9 +50521,66 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("router-view")], 1)
+  return _c("div", [_vm._m(0), _vm._v(" "), _c("router-view")], 1)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "w3-row w3-padding-8 w3-theme-d2 w3-xlarge" },
+      [
+        _c("div", { staticClass: "w3-quarter" }, [
+          _c("div", { staticClass: "w3-bar" }, [
+            _c(
+              "a",
+              { staticClass: "w3-bar-item w3-button", attrs: { href: "#" } },
+              [_c("i", { staticClass: "fa fa-bars" })]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w3-half" }, [
+          _c("input", {
+            staticClass: "w3-amber w3-border-0 w3-padding",
+            staticStyle: { width: "100%" },
+            attrs: { type: "text" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w3-quarter" }, [
+          _c("div", { staticClass: "w3-bar w3-xlarge" }, [
+            _c(
+              "a",
+              {
+                staticClass: "w3-bar-item w3-button w3-left",
+                attrs: { href: "#" }
+              },
+              [_c("i", { staticClass: "fa fa-search" })]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "w3-bar-item w3-button w3-right",
+                attrs: { href: "#" }
+              },
+              [
+                _c("img", {
+                  staticClass: "w3-hide-small w3-circle",
+                  staticStyle: { height: "40px" },
+                  attrs: { src: "img_avatar.jpg" }
+                })
+              ]
+            )
+          ])
+        ])
+      ]
+    )
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
